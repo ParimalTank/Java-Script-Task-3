@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Chase Board</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+<style>
+
+*{
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   justify-content: center;
+}
+
+#chessboard {
+   display: grid;
+   max-height: 100vh;
+   grid-template-columns: repeat(8 , 12.5vh);
+}
+
+@media screen and (max-width: 600px) {
+        #chessboard {
+          grid-template-columns: repeat(8, 12.5vw);
+        }
+}
+
+.chess-square {
+   aspect-ratio: 1/1;
+   background-color: #fff;
+}
+
+</style>
+</head>
+<body>
+
+<div id="chessboard">
+</div>
+
+<script>
+   let chessboard = document.getElementById('chessboard');
+   for (let i = 0; i < 8; i++) {
+      for (let j = 0; j < 8; j++) {
+         let chessSquare = document.createElement('div');
+         chessSquare.className = 'chess-square';
+         if ((i + j) % 2 == 0) {
+            chessSquare.style.backgroundColor = '#000';
+         }
+         chessboard.appendChild(chessSquare);
+      }
+   }
+</script>
+</body>
+</html>
